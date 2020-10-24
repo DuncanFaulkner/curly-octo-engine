@@ -1,34 +1,38 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-  <h1>GitHub User Details</h1>
+  <h1>Search Result</h1>
 </div>
 <br />
-<span>You are viewing the details of {{data.data.name}}</span>
+<span>You are viewing the details of {{data.user.name}}</span>
 <br /><br />
 <div fxLayout="row">
   <div fxFlex="30%">Bio:</div>
-  <div fxFlex>{{data.data.bio}}</div>
+  <div fxFlex>{{data.user.bio}}</div>
 </div>
 <div fxLayout="row">
   <div fxFlex="30%">Location:</div>
-  <div fxFlex>{{data.data.location}}</div>
+  <div fxFlex>{{data.user.location}}</div>
 </div>
 <div fxLayout="row">
   <div fxFlex="30%">Twitter:</div>
-  <div fxFlex>{{data.data.twitter_username}}</div>
+  <div fxFlex>{{data.user.twitter_username}}</div>
 </div>
 <div fxLayout="row">
   <div fxFlex="30%">Public Repos:</div>
-  <div fxFlex>{{data.data.public_repos}}</div>
+  <div fxFlex>{{data.user.public_repos}}</div>
 </div>
 <div fxLayout="row">
   <div fxFlex="30%">Public Gists:</div>
-  <div fxFlex>{{data.data.public_gists}}</div>
+  <div fxFlex>{{data.user.public_gists}}</div>
 </div>
 <div fxLayout="row">
   <div fxFlex="30%">Followers:</div>
-  <div fxFlex>{{data.data.followers}}</div>
+  <div fxFlex>{{data.user.followers}}</div>
 </div>
 <div fxLayout="row">
   <div fxFlex="30%">Followering:</div>
-  <div fxFlex>{{data.data.followering}}</div>
+  <div fxFlex>{{data.user.followering}}</div>
+</div>
+<br>
+<div>
+  <button mat-button mat-dialog-close>Close</button>
 </div>

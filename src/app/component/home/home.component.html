@@ -1,14 +1,21 @@
-<div class="example-container mat-elevation-z8">
-  <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+<div class="mat-elevation-z8">
+  <h1 fxLayout="row" fxLayoutAlign="center center">Total records returned:{{resultsLength}}</h1>
+  <div class="search">
+    <mat-form-field appearance="standard">
+      <mat-label>Search Users</mat-label>
+      <input #search matInput type="text">
+    </mat-form-field>
+    <button class="search__button" mat-stroked-button (click)="onSearch(search.value)">Search</button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" *ngIf="isLoadingResults || isRateLimitReached">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+    <div *ngIf="isRateLimitReached">
       GitHub's API rate limit has been reached. It will be reset in one minute.
     </div>
   </div>
 
-  <div class="example-table-container">
-    <mat-table [dataSource]="data" class="example-table" matSort matSortActive="login" matSortDisableClear
-      matSortDirection="desc">
+  <div>
+    <mat-table [dataSource]="data" matSort matSortActive="login" matSortDisableClear matSortDirection="desc">
 
       <!-- login Column -->
       <ng-container matColumnDef="login">
@@ -33,7 +40,9 @@
         <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
           Users GitHub Page
         </mat-header-cell>
-        <mat-cell mat-cell *matCellDef="let row"><a href="{{row.html_url}}" target="_blank">{{row.html_url}}</a>
+        <mat-cell mat-cell *matCellDef="let row"><a href="{{row.html_url}}" target="_blank">{{row.login}} GitHub
+            home
+            page</a>
         </mat-cell>
       </ng-container>
 

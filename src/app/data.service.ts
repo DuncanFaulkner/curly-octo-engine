@@ -17,12 +17,6 @@ export interface GithubUserDetails {
   twitter_username: string;
   location: string;
 }
-// export interface GithubIssue {
-//   created_at: string;
-//   number: string;
-//   state: string;
-//   title: string;
-// }
 
 export interface GitHubUsers {
   login: string;
@@ -38,13 +32,6 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getUsers(sort: string, order: string, page: number): Observable<GithubApi> {
-    console.log('repoIssues', sort, order, page);
-
-    // const href = 'https://api.github.com/search/issues';
-    // const requestUrl = `${href}?q=repo:angular/components&sort=${sort}&order=${order}&page=${
-    //   page + 1
-    // }`;
-
     const href = 'https://api.github.com/search/users';
     const requestUrl = `${href}?q=users&sort=${sort}&order=${order}&page=${
       page + 1
@@ -54,8 +41,13 @@ export class DataService {
   }
 
   getUser(login: string) {
-    console.log({ login });
+    const href = 'https://api.github.com/users';
+    const requestUrl = `${href}/${login}`;
 
+    return this.http.get<GithubUserDetails>(requestUrl);
+  }
+
+  getUserByLogin(login: string) {
     const href = 'https://api.github.com/users';
     const requestUrl = `${href}/${login}`;
 
