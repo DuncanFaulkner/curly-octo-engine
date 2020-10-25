@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,5 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'githubUserSearch';
-  post: any[];
-  constructor(private dataService: DataService){}
+  constructor() {}
 }
